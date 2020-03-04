@@ -1,0 +1,9 @@
+button {
+    display: flex;
+    flex-direction: row;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
