@@ -18,42 +18,82 @@ class View {
         this.div.appendChild(this.checkBtn3)
 
         
-    }
-    check(planets) {
-        this.checkBtn.addEventListener("click", () => {
-            for (let i = 1; i < planets.length; i++) {
-                if (planets[i].order < 5) {
-                    if (planets[i].name == "Sun") {
-                        return
-                    } else {
-                        
-                        this.po = document.createElement("p")
-                        this.po.innerHTML = planets[i].name
-                        this.div.appendChild(this.po)
-                    }
-                    
-                }
-            }
-        })
         
-        this.checkBtn2.addEventListener("click", () => {
-            for (let i = 0; i < planets.length; i++) {
-                
-                this.pt = document.createElement("p")
-                this.pt.innerHTML = planets[i].type
-                this.div.appendChild(this.pt)
-            }
-        })
+    }
+    check(planets, hi) {
 
-        this.checkBtn3.addEventListener("click", () => {
-            for (let i = 0; i < planets.length; i++) {
-                if ()
-                this.pc = document.createElement("p")
-                this.pc.innerHTML = planets[i].atmospheric_composition
-                this.div.appendChild(this.pc)
+    }
+    
+    fourPlanets(hi) {
+        this.checkBtn.addEventListener("click", () => {
+            for (let i = 0; i < hi.length; i++){
+
+                this.po = document.createElement("p")
+                this.po.innerHTML = JSON.stringify(hi[i].name)
+                this.div.appendChild(this.po)
             }
         })
     }
+
+    mostCommon(back) {
+        this.checkBtn2.addEventListener("click", () => {
+
+            this.pt = document.createElement("p")
+            this.pt.innerHTML = back.type
+            this.div.appendChild(this.pt)
+        })
+    }
+
+    atmos() {
+
+    }
+
+
+    // check(planets) {
+    //     this.checkBtn.addEventListener("click", () => {
+    //         for (let i = 1; i < planets.length; i++) {
+    //             if (planets[i].order < 5) {
+    //                 if (planets[i].name == "Sun") {
+    //                     return
+    //                 } else {
+                        
+    //                     this.po = document.createElement("p")
+    //                     this.po.innerHTML = planets[i].name
+    //                     this.div.appendChild(this.po)
+
+                        
+    //                     this.removeBtn = document.createElement("button")
+    //                     this.removeBtn.innerHTML = "remove"
+    //                     this.po.appendChild(this.removeBtn)
+
+    //                 }
+    //                         this.removeBtn.addEventListener("click", () => {
+                                
+    //                             this.div.replaceChild(this.po, planets[i].name)
+    //                         })
+                    
+    //             }
+    //         }
+    //     })
+        
+    //     this.checkBtn2.addEventListener("click", () => {
+    //         for (let i = 0; i < planets.length; i++) {
+                
+    //             this.pt = document.createElement("p")
+    //             this.pt.innerHTML = planets[i].type
+    //             this.div.appendChild(this.pt)
+    //         }
+    //     })
+
+    //     this.checkBtn3.addEventListener("click", () => {
+    //         for (let i = 0; i < planets.length; i++) {
+                
+    //             this.pc = document.createElement("p")
+    //             this.pc.innerHTML = planets[i].atmospheric_composition
+    //             this.div.appendChild(this.pc)
+    //         }
+    //     })
+    // }
 }
 
 let newView = new View();

@@ -14,9 +14,59 @@ class Model {
         ]    
     }
     getAllPlanets() {
+        this.planets.sort(function(a, b) {
+            return a.order - b.order
+        })
         return this.planets
-    } 
+    }
+    
+    closestPlanets() {
+        let hi = this.planets.slice(1, 5)
+        return hi
+    }
+    
+    planetType() {
+        let back
+        
+        let gas = this.planets.filter(planets => planets.type == "Gas planet")
+        let terrestrial = this.planets.filter(planets => planets.type == "Terrestrial planet")
+        let star = this.planets.filter(planets => planets.type == "Star")
+        
+       
+       return back = {
+        gas,
+        terrestrial,
+        star
+       }
+    }
+
+    atmosPheric() {
+        let obj = {}
+        let test 
+        for (let i = 0; i < this.planets.length; i++) {
+            this.planets[i].atmospheric_composition.forEach((element) => {
+                
+                if (obj.hasOwnProperty(element)) {
+                    obj[element] ++
+                } else {
+                    obj[element] = 1
+                } 
+            })
+            
+            test = Object.entries(obj).sort(function(a, b) {
+                
+               test = (b[1] - a[1])
+               
+               return test
+            })
+        }
+        return test
+        }
+
 }
 
 let planetModel = new Model()
 console.log(planetModel.getAllPlanets())
+console.log(planetModel.closestPlanets())
+console.log(planetModel.planetType())
+console.log(planetModel.atmosPheric())
