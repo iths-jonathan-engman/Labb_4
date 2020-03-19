@@ -15,6 +15,9 @@ class Controller {
 
         this.three = this.model.atmosPheric()
         this.view.atmos(this.three)
+
+        this.four = this.model.deletePlanets()
+        this.view.delPlanets(this.four)
     }
 }
 

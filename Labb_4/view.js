@@ -9,6 +9,10 @@ class View {
         this.checkBtn.innerHTML = "4 of the closest planets to the sun?"
         this.div.appendChild(this.checkBtn)
 
+        this.checkBtn4 = document.createElement("button")
+        this.checkBtn4.innerHTML = "Remove one planet"
+        this.div.appendChild(this.checkBtn4)
+
         this.checkBtn2 = document.createElement("button")
         this.checkBtn2.innerHTML = "Planet types"
         this.div.appendChild(this.checkBtn2)
@@ -34,66 +38,40 @@ class View {
             }
         })
     }
+    
+    delPlanets(del) {
+        this.checkBtn4.addEventListener("click", () => {
+            for (let i = 0; i < del.length; i++){
 
-    mostCommon(back) {
+                this.pew = document.createElement("p")
+                this.pew.innerHTML = JSON.stringify(del[i].name)
+                this.div.appendChild(this.pew)
+                i++
+            }
+        })
+    }
+
+    mostCommon(threeComp) {
         this.checkBtn2.addEventListener("click", () => {
 
-            this.pt = document.createElement("p")
-            this.pt.innerHTML = back.type
-            this.div.appendChild(this.pt)
+            this.ga = document.createElement("p")
+            this.ga.innerHTML = "Gasplanets: " + threeComp.gas.length
+
+            this.te = document.createElement("p")
+            this.te.innerHTML = "Terrestrials: " + threeComp.terrestrial.length
+
+            this.st = document.createElement("p")
+            this.st.innerHTML = "Stars: " + threeComp.star.length
+
+            this.div.appendChild(this.ga)
+            this.div.appendChild(this.te)
+            this.div.appendChild(this.st)
         })
     }
 
     atmos() {
 
     }
-
-
-    // check(planets) {
-    //     this.checkBtn.addEventListener("click", () => {
-    //         for (let i = 1; i < planets.length; i++) {
-    //             if (planets[i].order < 5) {
-    //                 if (planets[i].name == "Sun") {
-    //                     return
-    //                 } else {
-                        
-    //                     this.po = document.createElement("p")
-    //                     this.po.innerHTML = planets[i].name
-    //                     this.div.appendChild(this.po)
-
-                        
-    //                     this.removeBtn = document.createElement("button")
-    //                     this.removeBtn.innerHTML = "remove"
-    //                     this.po.appendChild(this.removeBtn)
-
-    //                 }
-    //                         this.removeBtn.addEventListener("click", () => {
-                                
-    //                             this.div.replaceChild(this.po, planets[i].name)
-    //                         })
-                    
-    //             }
-    //         }
-    //     })
-        
-    //     this.checkBtn2.addEventListener("click", () => {
-    //         for (let i = 0; i < planets.length; i++) {
-                
-    //             this.pt = document.createElement("p")
-    //             this.pt.innerHTML = planets[i].type
-    //             this.div.appendChild(this.pt)
-    //         }
-    //     })
-
-    //     this.checkBtn3.addEventListener("click", () => {
-    //         for (let i = 0; i < planets.length; i++) {
-                
-    //             this.pc = document.createElement("p")
-    //             this.pc.innerHTML = planets[i].atmospheric_composition
-    //             this.div.appendChild(this.pc)
-    //         }
-    //     })
-    // }
 }
 
 let newView = new View();

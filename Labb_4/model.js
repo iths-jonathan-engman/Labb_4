@@ -24,20 +24,23 @@ class Model {
         let hi = this.planets.slice(1, 5)
         return hi
     }
+
+    deletePlanets() {
+        let del = this.planets.splice(1, 1)
+        return del
+    }
     
     planetType() {
-        let back
         
         let gas = this.planets.filter(planets => planets.type == "Gas planet")
         let terrestrial = this.planets.filter(planets => planets.type == "Terrestrial planet")
         let star = this.planets.filter(planets => planets.type == "Star")
         
-       
-       return back = {
+        return {
         gas,
         terrestrial,
         star
-       }
+        }
     }
 
     atmosPheric() {
@@ -61,7 +64,7 @@ class Model {
             })
         }
         return test
-        }
+    }
 
 }
 
@@ -70,3 +73,4 @@ console.log(planetModel.getAllPlanets())
 console.log(planetModel.closestPlanets())
 console.log(planetModel.planetType())
 console.log(planetModel.atmosPheric())
+console.log(planetModel.deletePlanets())
